@@ -1,11 +1,24 @@
-import Image from "next/image";
-import Map from "@/components/ui/map";
+"use client";
 
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import WhyChooseUs from "../components/ui/why-choose-us";
+
+const Map = dynamic(() => import("@/components/ui/map"), { ssr: false });
 
 export default function HomePage() {
+  const galleryImages = [
+  "/aaruul.JPG",
+  "/bagts.jpg",
+  "/butter.jpg",
+  "/suu.jpg",
+  "/shar_tos_ger.jpg",
+  "/Aaruul_tavag.jpg",
+];
   return (
     <div>
-      {/* Hero Section */}
       <section id="about" className="py-12 text-center">
         <h1 className="text-3xl font-bold mb-6">Бидний тухай</h1>
         <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto">
@@ -20,35 +33,39 @@ export default function HomePage() {
           тэжээллэг сонголтуудыг эрэлхийлдэг хүмүүст бидний бүтээгдэхүүн маш тохиромжтой.
         </p>
       </section>
+      <WhyChooseUs />
 
-
-
-      {/* Gallery Section */}
       <section id="gallery" className="py-12">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Gallery</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div className="w-full h-40 bg-gray-200 rounded" />
-          <div className="w-full h-40 bg-gray-200 rounded" />
-          <div className="w-full h-40 bg-gray-200 rounded" />
-          <div className="w-full h-40 bg-gray-200 rounded" />
-          <div className="w-full h-40 bg-gray-200 rounded" />
-          <div className="w-full h-40 bg-gray-200 rounded" />
-        </div>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Зургийн сан</h2>
+
+        <PhotoProvider>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {galleryImages.map((src, index) => (
+              <PhotoView key={index} src={src}>
+                <div className="relative w-full h-40 cursor-pointer overflow-hidden rounded-lg shadow">
+                  <Image
+                    src={src}
+                    alt={`gallery-${index}`}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform"
+                  />
+                </div>
+              </PhotoView>
+            ))}
+          </div>
+        </PhotoProvider>
       </section>
 
 
-      {/* Location Section */}
       <section id="location" className="py-12">
         <h2 className="text-2xl font-semibold mb-6 text-center">Location</h2>
         <Map />
       </section>
 
-
-      {/* Contact Section */}
       <section id="contact" className="py-12 text-center">
         <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-        <p className="text-gray-700">Phone: +976 XXXX-XXXX</p>
-        <p className="text-gray-700">Email: example@gmail.com</p>
+        <p className="text-gray-700">Phone: +976 9119-6159</p>
+        <p className="text-gray-700">Email: munkherdenex@gmail.com</p>
       </section>
     </div>
   );

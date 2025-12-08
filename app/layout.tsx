@@ -5,7 +5,7 @@ import Footer from "@/components/ui/footer";
 
 
 export const metadata: Metadata = {
-  title: "Mongolian Traditional Product",
+  title: "Сүүн Мөнгөн Цацал",
   description: "Premium Mongolian handcrafted product with history and tradition.",
 };
 
