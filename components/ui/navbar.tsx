@@ -10,7 +10,7 @@ export default function Navbar() {
     return (
         <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
             <nav className="mx-auto flex items-center justify-between h-16 px-4 max-w-5xl">
-                <Link href="/" className="text-xl font-semibold">Монголын уламжлалт бүтээгдэхүүн</Link>
+                <Link href="/" className="text-xl font-semibold">Сүүн Мөнгөн Цацал</Link>
                 <button onClick={() => setOpen(true)} className="md:hidden">
                     <Menu className="w-6 h-6" />
                 </button>
