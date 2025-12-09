@@ -15,7 +15,7 @@ export default function HomePage() {
     "/aaruul.JPG",
     "/bagts.jpg",
     "/butter.jpg",
-    "/suu.jpg",
+    "/suu.JPG",
     "/shar_tos_ger.jpg",
     "/Aaruul_tavag.jpg",
   ];
